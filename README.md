@@ -40,3 +40,5 @@ $pdo = new PDO('mysql:host=localhost;dbname=nom_de_la_base_de_donnees',
     'mot_de_passe'
 );
 ``` 
+
+Pour la suite de la partie théorie de ce cours, j'ai créé un .pdf que vous pouvez télécharger [ici](https://github.com/mikhawa/PDO-2024/blob/main/datas/PDO.pdf).
