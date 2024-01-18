@@ -39,6 +39,26 @@ $pdo = new PDO('mysql:host=localhost;dbname=nom_de_la_base_de_donnees',
     'nom_utilisateur', 
     'mot_de_passe'
 );
+
+// requête SQL
+$sql = "SELECT * FROM `table`";
+
+// Exécution de la requête SQL
+$query = $pdo->query($sql);
+
+// récupération des résultats
+$results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+// etc ...
+
+// fermeture de la requête
+$query->closeCursor();
+
+// effacement des résultats
+$results = null;
+
+// fermeture de la connexion
+$pdo = null;
 ``` 
 
-Pour la suite de la partie théorie de ce cours, j'ai créé un .pdf que vous pouvez télécharger [ici](https://github.com/mikhawa/PDO-2024/blob/main/datas/PDO.pdf).
+Pour la suite de la partie théorie de ce cours, j'ai créé un .pdf que vous pouvez télécharger [ici](https://github.com/WebDevCF2m2023/PDO-2024/blob/main/datas/PDO.pdf).
