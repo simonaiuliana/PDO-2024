@@ -62,3 +62,9 @@ $pdo = null;
 ``` 
 
 Pour la suite de la partie théorie de ce cours, j'ai créé un .pdf que vous pouvez télécharger [ici](https://github.com/WebDevCF2m2023/PDO-2024/blob/main/datas/PDO.pdf).
+
+## PDO : Exercices
+
+Nous allons maintenant mettre en pratique ce que nous avons vu dans la partie théorique. N'oubliez pas de créer un dossier à votre nom dans `stagiaires` et d'y mettre vos fichiers.
+
+Ouvrez PHPMyAdmin, sélectionnez `MariaDB` et importez la base de données `listepays.sql` qui se trouve dans le dossier `datas` de ce dépôt.
