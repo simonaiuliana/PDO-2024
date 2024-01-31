@@ -18,6 +18,6 @@ try {
 $sql = "SELECT * FROM countries";
 $query = $db->query($sql);
 $countQuery = $query -> rowCount();
-// $sql2 = "SELECT * FROM countries WHERE nom = 'Irlande' OR nom = 'Belgique' OR nom = 'Turquie'";
-// $query2 = $db->query($sql2);
+$sql2 = "SELECT * FROM countries WHERE nom = 'Irlande' OR nom = 'Belgique' OR nom = 'Turquie'";
+$query2 = $db->query($sql2);
 include "../view/homepage.view.php";
