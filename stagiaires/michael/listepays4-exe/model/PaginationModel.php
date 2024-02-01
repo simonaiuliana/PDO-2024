@@ -14,23 +14,27 @@ function PaginationModel(string $url, // url (pour garder les autres variables g
     if($nbTotalItem===0) return null;
     // création de la variable de sortie au format texte
     $sortie="";
-    // on calcule le nombre de page en divaisant le nombre
+    // on calcule le nombre de page en divisant le nombre
     // total d'item par le nombre d'item par page
     // le tout arrondit à l'entier supérieur ceil
-    $nbPage = ceil($nbTotalItem/$nbByPage);
+    $nbPage = (int) ceil($nbTotalItem/$nbByPage);
 
     // si une seule page, pas de pagination
     if($nbPage<2) return null;
 
-    
+    // on commence par le bouton précédent, utilisation d'une ternaire pour remplacer un il et else
+    $sortie.= $currentPage===1
+                ? "<< <"
+                : "<a href='$url'><<</a> <a href='$url?&$getName=".($currentPage-1)."'><</a>";
 
+    // on termine par le bouton suivant
+    $sortie.= $currentPage === $nbPage ? "> >>" : "<a href='$url?&$getName=".($currentPage+1)."'>></a> <a href='$url?&$getName=$nbPage'>>></a>";
 
-
-
-
-    return (string) $nbPage;
+    return $sortie;
 }
 
-$page = PaginationModel("http://pdo-2024/stagiaires/michael/listepays4-exe/model/PaginationModel.php", MY_PAGINATION_GET, 340,2,MY_PAGINATION_BY_PAGE);
+$page = PaginationModel("PaginationModel.php", MY_PAGINATION_GET, 340,7,MY_PAGINATION_BY_PAGE);
 
-var_dump($page);
+echo $page;
+
+var_dump($_GET);
