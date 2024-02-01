@@ -33,8 +33,11 @@ function PaginationModel(string $url, // url (pour garder les autres variables g
     return $sortie;
 }
 
-$page = PaginationModel("PaginationModel.php", MY_PAGINATION_GET, 340,7,MY_PAGINATION_BY_PAGE);
+if(isset($_GET["pg"])) $page = (int) $_GET["pg"];
+else $page = 1;
 
-echo $page;
+$viewPage = PaginationModel("PaginationModel.php", MY_PAGINATION_GET, 340,$page,MY_PAGINATION_BY_PAGE);
+
+echo $viewPage;
 
 var_dump($_GET);
