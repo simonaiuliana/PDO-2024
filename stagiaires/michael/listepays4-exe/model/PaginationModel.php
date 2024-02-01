@@ -27,6 +27,15 @@ function PaginationModel(string $url, // url (pour garder les autres variables g
                 ? "<< <"
                 : "<a href='$url'><<</a> <a href='$url?&$getName=".($currentPage-1)."'><</a>";
 
+    // on boucle sur le nombre de pages
+    for($i=1;$i<=$nbPage;$i++)
+    {
+        // si on est sur la page en cours, on affiche un texte
+        if($i===$currentPage) $sortie.= " $i ";
+        // sinon on affiche un lien
+        else $sortie.= " <a href='$url?&$getName=$i'>$i</a> ";
+    }
+
     // on termine par le bouton suivant
     $sortie.= $currentPage === $nbPage ? "> >>" : "<a href='$url?&$getName=".($currentPage+1)."'>></a> <a href='$url?&$getName=$nbPage'>>></a>";
 
