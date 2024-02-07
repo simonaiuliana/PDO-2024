@@ -20,6 +20,7 @@
         <p><?=$item['nom']?></p>
         <?php
         endwhile;
+    
         ?>
         </div>
 
