@@ -13,11 +13,15 @@ function getAllCountries(PDO $connectDB): array
     // envoie du tableau indexé contenant les pays
     return $datas;
 }
-
+ 
 // nous retourne le nombre de pays avec une requête simple (COUNT)
 function getNumberCountries(PDO $connect): int
 {
-    return 1;
+   /* $query = $connect->query("SELECT COUNT('id') AS nb FROM countries");
+    $result = $query->fetch();
+    return $result['nb'];*/
+
+    return $connect->query("SELECT COUNT('id') AS nb FROM countries")->fetch()['nb'];
 }
 
 // nous affiche les pays par rapport à la page ! lien avec pagination !
