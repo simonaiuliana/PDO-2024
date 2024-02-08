@@ -4,9 +4,9 @@
 // Cette fonction va nous renvoyer un array
 function getAllCountries(PDO $connectDB): array
 {
-    $sql = "SELECT * FROM countries"; // requête non exécutée
+    $sql = "SELECT nom FROM countries"; // requête non exécutée
     $query = $connectDB->query($sql); // exécution de la requête de type SELECT avec query()
-    // convertion des données en un tableau indexé (fetchAll) qui contient chaque ligne de résultat en tableau associatif
+    // convertion des données en un tableau indexé (fetchAll) qui contient chaque ligne de résultat en tableau associatif (voir connexion)
     $datas = $query->fetchAll();
     // bonne pratique (autres DB que MySQL ou MariaDB)
     $query->closeCursor();
@@ -29,6 +29,14 @@ function getCountriesByPage(PDO $dbConnect,
                             int $currentPage=1, 
                             int $nbByPage=20): array
 {
+    // pour avoir le offset, donc le démmarage du LIMIT 
+    $offset = ($currentPage-1)*$nbByPage;
+
+    // création de la requête
+    $sql = "SELECT nom FROM countries LIMIT $offset, $nbByPage ";
+    // exécution de la requête
+    $query = $dbConnect->query($sql);
+    // envoi du tableau de résultat avec fetchAll (tab indexé contenant des assoc)
     
-    return [];
+    return $query->fetchAll();
 }

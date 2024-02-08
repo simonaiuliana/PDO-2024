@@ -44,6 +44,7 @@ $pagination = PaginationModel("exemple.php",MY_PAGINATION_GET,$nbPays,$page,MY_P
 // A remplacer par getCountriesByPage
 //$allCountries = getAllCountries($db); // remplacement par getCountriesByPage
 
+$countriesByPage = getCountriesByPage($db,$page,MY_PAGINATION_BY_PAGE);
 
 /* récupération du template d'affichage, 
 on utilisera la boucle while avec un fetch directement
