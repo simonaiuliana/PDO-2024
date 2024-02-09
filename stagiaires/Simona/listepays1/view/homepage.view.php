@@ -12,10 +12,10 @@
     <pre><code>
         <div>
             <?php
-        while($item = $query->fetch(PDO::FETCH_ASSOC))
-        {
-          echo "$item";
-        }
+        while($item = $query->fetch(PDO::FETCH_ASSOC)):
+        
+         
+        
         ?>
         <p><?=$item['nom']?></p>
         <?php
